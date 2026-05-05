@@ -56,5 +56,9 @@ const visioPage = vsdxZip.readAsText("visio/pages/page1.xml");
 for (const label of requiredLabels) {
   assert(visioPage.includes(label), `VSDX missing label: ${label}`);
 }
+const connectorCount = (visioPage.match(/NameU="Dynamic connector"/g) || []).length;
+assert(connectorCount === 15, `Expected 15 editable Visio connectors, found ${connectorCount}`);
+assert(visioPage.includes('ToCell="Connections.X3"'), "VSDX connectors are not anchored to bottom ports");
+assert(visioPage.includes('ToCell="Connections.X1"'), "VSDX connectors are not anchored to top ports");
 
 console.log(`Verified ${requiredLabels.length} labels in SVG, PPTX, and VSDX.`);

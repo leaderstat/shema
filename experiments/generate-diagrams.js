@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const pptxgen = require("pptxgenjs");
-const { ArrowHeads, VisioDocument } = require("ts-visio");
+const { ArrowHeads, StandardConnectionPoints, VisioDocument } = require("ts-visio");
 
 const docsDir = path.join(__dirname, "..", "docs");
 fs.mkdirSync(docsDir, { recursive: true });
@@ -144,6 +144,18 @@ function addArrow(pptxDoc, slide, x1, y1, x2, y2) {
   });
 }
 
+function bottom(box) {
+  return [box[1] + box[3] / 2, box[2] + box[4]];
+}
+
+function top(box) {
+  return [box[1] + box[3] / 2, box[2]];
+}
+
+function addDownArrow(pptxDoc, slide, from, to) {
+  addArrow(pptxDoc, slide, ...bottom(from), ...top(to));
+}
+
 async function buildPptx() {
   const pptxDoc = new pptxgen();
   pptxDoc.layout = "LAYOUT_WIDE";
@@ -184,17 +196,17 @@ async function buildPptx() {
   });
 
   const tb = {
-    director: [2.3, 0.85, 2.65, 0.58],
-    constructor: [0.65, 1.95, 1.95, 0.55],
-    technologistHead: [2.95, 1.95, 1.95, 0.55],
-    complex: [5.25, 1.95, 2.15, 0.55],
-    pump: [0.65, 2.95, 1.95, 0.6],
-    technologist: [2.95, 2.95, 1.95, 0.55],
-    kip: [5.35, 2.95, 1.95, 0.55],
-    calc: [0.65, 3.95, 1.95, 0.55],
-    material: [2.95, 3.95, 1.95, 0.55],
-    leadConstructor: [0.65, 4.95, 1.95, 0.55],
-    staff: [0.65, 5.95, 1.95, 0.55],
+    director: [2.55, 0.85, 3, 0.62],
+    constructor: [0.45, 1.95, 2.35, 0.62],
+    technologistHead: [3.05, 1.95, 2.25, 0.62],
+    complex: [5.75, 1.95, 2.55, 0.62],
+    pump: [0.35, 2.98, 2.55, 0.68],
+    technologist: [3.05, 2.98, 2.25, 0.62],
+    kip: [5.9, 2.98, 2.25, 0.62],
+    calc: [0.35, 4.02, 2.55, 0.62],
+    material: [3.05, 4.02, 2.25, 0.62],
+    leadConstructor: [0.35, 5.05, 2.55, 0.62],
+    staff: [0.35, 6.08, 2.55, 0.62],
   };
   for (const [key, label] of [
     ["director", "Директор технического департамента"],
@@ -209,28 +221,28 @@ async function buildPptx() {
     ["leadConstructor", "Ведущий конструктор"],
     ["staff", "Штат конструкторов"],
   ]) addBox(pptxDoc, slide, label, ...tb[key]);
-  addArrow(pptxDoc, slide, 3.63, 1.43, 1.63, 1.95);
-  addArrow(pptxDoc, slide, 3.63, 1.43, 3.93, 1.95);
-  addArrow(pptxDoc, slide, 3.63, 1.43, 6.33, 1.95);
-  addArrow(pptxDoc, slide, 1.63, 2.5, 1.63, 2.95);
-  addArrow(pptxDoc, slide, 3.93, 2.5, 3.93, 2.95);
-  addArrow(pptxDoc, slide, 6.33, 2.5, 6.33, 2.95);
-  addArrow(pptxDoc, slide, 1.63, 3.55, 1.63, 3.95);
-  addArrow(pptxDoc, slide, 3.93, 3.5, 3.93, 3.95);
-  addArrow(pptxDoc, slide, 1.63, 4.5, 1.63, 4.95);
-  addArrow(pptxDoc, slide, 1.63, 5.5, 1.63, 5.95);
+  addDownArrow(pptxDoc, slide, tb.director, tb.constructor);
+  addDownArrow(pptxDoc, slide, tb.director, tb.technologistHead);
+  addDownArrow(pptxDoc, slide, tb.director, tb.complex);
+  addDownArrow(pptxDoc, slide, tb.constructor, tb.pump);
+  addDownArrow(pptxDoc, slide, tb.technologistHead, tb.technologist);
+  addDownArrow(pptxDoc, slide, tb.complex, tb.kip);
+  addDownArrow(pptxDoc, slide, tb.pump, tb.calc);
+  addDownArrow(pptxDoc, slide, tb.technologist, tb.material);
+  addDownArrow(pptxDoc, slide, tb.calc, tb.leadConstructor);
+  addDownArrow(pptxDoc, slide, tb.leadConstructor, tb.staff);
 
   const pb = [
-    ["Руководитель производственного отдела", 9.2, 0.85, 2.55, 0.58],
-    ["Производственный отдел", 9.35, 1.95, 2.25, 0.55],
-    ["Полевой сервис", 9.35, 2.95, 2.25, 0.55],
-    ["СПБ сервисный центр", 9.35, 3.95, 2.25, 0.55],
-    ["Мурманский сервисный центр", 9.35, 4.95, 2.25, 0.55],
-    ["Сахалинский сервисный центр", 9.35, 5.95, 2.25, 0.55],
+    ["Руководитель производственного отдела", 9.05, 0.85, 3, 0.62],
+    ["Производственный отдел", 9.25, 1.95, 2.6, 0.62],
+    ["Полевой сервис", 9.25, 2.98, 2.6, 0.62],
+    ["СПБ сервисный центр", 9.25, 4.02, 2.6, 0.62],
+    ["Мурманский сервисный центр", 9.25, 5.05, 2.6, 0.62],
+    ["Сахалинский сервисный центр", 9.25, 6.08, 2.6, 0.62],
   ];
   for (const [label, x, y, w, h] of pb) addBox(pptxDoc, slide, label, x, y, w, h, "16A34A", "F0FDF4");
   for (let i = 0; i < pb.length - 1; i++) {
-    addArrow(pptxDoc, slide, pb[i][1] + pb[i][3] / 2, pb[i][2] + pb[i][4], pb[i + 1][1] + pb[i + 1][3] / 2, pb[i + 1][2]);
+    addDownArrow(pptxDoc, slide, pb[i], pb[i + 1]);
   }
 
   await pptxDoc.writeFile({ fileName: path.join(docsDir, "organizational-diagrams.pptx") });
@@ -248,7 +260,7 @@ async function buildVsdx() {
 
   const page = doc.pages[0];
   doc.renamePage(page, "Организационные схемы");
-  page.setSize(13.333, 7.5);
+  page.setSize(14.2, 7.5);
 
   await page.addShape({
     text: "Блок-схема 1. Структура технического департамента",
@@ -302,6 +314,7 @@ async function buildVsdx() {
       textMarginRight: 0.04,
       textMarginTop: 0.04,
       textMarginBottom: 0.04,
+      connectionPoints: StandardConnectionPoints.cardinal,
     });
   }
 
@@ -309,22 +322,22 @@ async function buildVsdx() {
     await page.connectShapes(from, to, ArrowHeads.None, ArrowHeads.Standard, {
       lineColor: "#64748B",
       lineWeight: 1.25,
-      routing: "straight",
-    });
+      routing: "orthogonal",
+    }, { name: "Bottom" }, { name: "Top" });
   }
 
   const tech = {
-    director: await addVisioBox("Директор технического департамента", 3.63, 6.35, 2.65, 0.58),
-    constructor: await addVisioBox("Главный конструктор", 1.63, 5.25, 1.95, 0.55),
-    technologistHead: await addVisioBox("Главный технолог", 3.93, 5.25, 1.95, 0.55),
-    complex: await addVisioBox("Специалист комплексных решений", 6.33, 5.25, 2.15, 0.55),
-    pump: await addVisioBox("Руководитель насосного подразделения", 1.63, 4.25, 1.95, 0.6),
-    technologist: await addVisioBox("Технолог", 3.93, 4.25, 1.95, 0.55),
-    kip: await addVisioBox("КИП", 6.33, 4.25, 1.95, 0.55),
-    calc: await addVisioBox("Ведущий расчетчик", 1.63, 3.25, 1.95, 0.55),
-    material: await addVisioBox("Материаловед", 3.93, 3.25, 1.95, 0.55),
-    leadConstructor: await addVisioBox("Ведущий конструктор", 1.63, 2.25, 1.95, 0.55),
-    staff: await addVisioBox("Штат конструкторов", 1.63, 1.25, 1.95, 0.55),
+    director: await addVisioBox("Директор технического департамента", 4.05, 6.35, 3, 0.62),
+    constructor: await addVisioBox("Главный конструктор", 1.6, 5.2, 2.35, 0.62),
+    technologistHead: await addVisioBox("Главный технолог", 4.05, 5.2, 2.25, 0.62),
+    complex: await addVisioBox("Специалист комплексных решений", 6.8, 5.2, 2.55, 0.62),
+    pump: await addVisioBox("Руководитель насосного подразделения", 1.6, 4.1, 2.55, 0.68),
+    technologist: await addVisioBox("Технолог", 4.05, 4.1, 2.25, 0.62),
+    kip: await addVisioBox("КИП", 6.95, 4.1, 2.25, 0.62),
+    calc: await addVisioBox("Ведущий расчетчик", 1.6, 3, 2.55, 0.62),
+    material: await addVisioBox("Материаловед", 4.05, 3, 2.25, 0.62),
+    leadConstructor: await addVisioBox("Ведущий конструктор", 1.6, 1.9, 2.55, 0.62),
+    staff: await addVisioBox("Штат конструкторов", 1.6, 0.8, 2.55, 0.62),
   };
   await connect(tech.director, tech.constructor);
   await connect(tech.director, tech.technologistHead);
@@ -338,12 +351,12 @@ async function buildVsdx() {
   await connect(tech.leadConstructor, tech.staff);
 
   const production = [
-    await addVisioBox("Руководитель производственного отдела", 10.5, 6.35, 2.55, 0.58, "#16A34A", "#F0FDF4"),
-    await addVisioBox("Производственный отдел", 10.5, 5.25, 2.25, 0.55, "#16A34A", "#F0FDF4"),
-    await addVisioBox("Полевой сервис", 10.5, 4.25, 2.25, 0.55, "#16A34A", "#F0FDF4"),
-    await addVisioBox("СПБ сервисный центр", 10.5, 3.25, 2.25, 0.55, "#16A34A", "#F0FDF4"),
-    await addVisioBox("Мурманский сервисный центр", 10.5, 2.25, 2.25, 0.55, "#16A34A", "#F0FDF4"),
-    await addVisioBox("Сахалинский сервисный центр", 10.5, 1.25, 2.25, 0.55, "#16A34A", "#F0FDF4"),
+    await addVisioBox("Руководитель производственного отдела", 11.3, 6.35, 3, 0.62, "#16A34A", "#F0FDF4"),
+    await addVisioBox("Производственный отдел", 11.3, 5.2, 2.6, 0.62, "#16A34A", "#F0FDF4"),
+    await addVisioBox("Полевой сервис", 11.3, 4.1, 2.6, 0.62, "#16A34A", "#F0FDF4"),
+    await addVisioBox("СПБ сервисный центр", 11.3, 3, 2.6, 0.62, "#16A34A", "#F0FDF4"),
+    await addVisioBox("Мурманский сервисный центр", 11.3, 1.9, 2.6, 0.62, "#16A34A", "#F0FDF4"),
+    await addVisioBox("Сахалинский сервисный центр", 11.3, 0.8, 2.6, 0.62, "#16A34A", "#F0FDF4"),
   ];
   for (let i = 0; i < production.length - 1; i++) {
     await connect(production[i], production[i + 1]);
