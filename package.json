@@ -1,0 +1,28 @@
+{
+  "name": "gh-issue-solver-1777964911382",
+  "version": "1.0.0",
+  "description": "Editable organizational diagrams for leaderstat/shema issue 1",
+  "main": "index.js",
+  "scripts": {
+    "build": "node experiments/generate-diagrams.js",
+    "test": "node experiments/verify-diagrams.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konard/leaderstat-shema.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/konard/leaderstat-shema/issues"
+  },
+  "homepage": "https://github.com/konard/leaderstat-shema#readme",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  },
+  "devDependencies": {
+    "adm-zip": "^0.5.17"
+  }
+}
