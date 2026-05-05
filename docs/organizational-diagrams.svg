@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#64748b"/></marker></defs>
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="430" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1f2937">Блок-схема 1. Структура технического департамента</text>
+<text x="1210" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1f2937">Блок-схема 2. Производственный отдел</text>
+<desc>Директор технического департамента</desc>
+<rect x="275" y="90" width="310" height="62" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="430" y="117" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="430" dy="0">Директор технического</tspan><tspan x="430" dy="18">департамента</tspan></text>
+<desc>Главный конструктор</desc>
+<rect x="80" y="210" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="190" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="190" dy="0">Главный конструктор</tspan></text>
+<desc>Главный технолог</desc>
+<rect x="350" y="210" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="460" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="460" dy="0">Главный технолог</tspan></text>
+<desc>Специалист комплексных решений</desc>
+<rect x="620" y="210" width="250" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="745" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="745" dy="0">Специалист комплексных</tspan><tspan x="745" dy="18">решений</tspan></text>
+<desc>Руководитель насосного подразделения</desc>
+<rect x="80" y="315" width="220" height="62" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="190" y="342" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="190" dy="0">Руководитель насосного</tspan><tspan x="190" dy="18">подразделения</tspan></text>
+<desc>Технолог</desc>
+<rect x="350" y="315" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="460" y="349" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="460" dy="0">Технолог</tspan></text>
+<desc>КИП</desc>
+<rect x="635" y="315" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="745" y="349" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="745" dy="0">КИП</tspan></text>
+<desc>Ведущий расчетчик</desc>
+<rect x="80" y="420" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="190" y="454" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="190" dy="0">Ведущий расчетчик</tspan></text>
+<desc>Материаловед</desc>
+<rect x="350" y="420" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="460" y="454" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="460" dy="0">Материаловед</tspan></text>
+<desc>Ведущий конструктор</desc>
+<rect x="80" y="525" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="190" y="559" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="190" dy="0">Ведущий конструктор</tspan></text>
+<desc>Штат конструкторов</desc>
+<rect x="80" y="630" width="220" height="58" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+<text x="190" y="664" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="190" dy="0">Штат конструкторов</tspan></text>
+<line x1="430" y1="152" x2="190" y2="210" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="430" y1="152" x2="460" y2="210" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="430" y1="152" x2="745" y2="210" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="190" y1="268" x2="190" y2="315" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="460" y1="268" x2="460" y2="315" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="745" y1="268" x2="745" y2="315" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="190" y1="377" x2="190" y2="420" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="460" y1="373" x2="460" y2="420" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="190" y1="478" x2="190" y2="525" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="190" y1="583" x2="190" y2="630" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<desc>Руководитель производственного отдела</desc>
+<rect x="1085" y="90" width="300" height="62" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="1235" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="1235" dy="0">Руководитель</tspan><tspan x="1235" dy="18">производственного</tspan><tspan x="1235" dy="18">отдела</tspan></text>
+<desc>Производственный отдел</desc>
+<rect x="1105" y="210" width="260" height="58" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="1235" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="1235" dy="0">Производственный отдел</tspan></text>
+<desc>Полевой сервис</desc>
+<rect x="1105" y="315" width="260" height="58" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="1235" y="349" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="1235" dy="0">Полевой сервис</tspan></text>
+<desc>СПБ сервисный центр</desc>
+<rect x="1105" y="420" width="260" height="58" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="1235" y="454" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="1235" dy="0">СПБ сервисный центр</tspan></text>
+<desc>Мурманский сервисный центр</desc>
+<rect x="1105" y="525" width="260" height="58" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="1235" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="1235" dy="0">Мурманский сервисный</tspan><tspan x="1235" dy="18">центр</tspan></text>
+<desc>Сахалинский сервисный центр</desc>
+<rect x="1105" y="630" width="260" height="58" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="1235" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#111827"><tspan x="1235" dy="0">Сахалинский сервисный</tspan><tspan x="1235" dy="18">центр</tspan></text>
+<line x1="1235" y1="152" x2="1235" y2="210" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1235" y1="268" x2="1235" y2="315" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1235" y1="373" x2="1235" y2="420" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1235" y1="478" x2="1235" y2="525" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1235" y1="583" x2="1235" y2="630" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
